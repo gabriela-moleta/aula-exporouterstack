@@ -1,13 +1,19 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, Pressable, StyleSheet} from "react-native";
 import { Link } from 'expo-router';
 
-
-export default function Screen() {
+export default function Home() {
     return (
+
         <View style={styles.container}>
-                 <Text>Bem-vindo à tela inicial!</Text>
-                 <Link href="/sobre">Ir para Sobre</Link>
+            <Link href="/sobre" asChild>
+                <Pressable style={styles.button}>
+                    <Text style={styles.buttonText} >Ir para Sobre</Text>
+                </Pressable>            
+            </Link>
+
+            <Link href="/termos">Leia os Termos</Link>
         </View>
+
     );
 }
 
@@ -19,6 +25,18 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 24,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        marginBottom: 20
+    },
+    button: {
+        backgroundColor: '#007bff',
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 5,
+    },
+    buttonText: {
+        color: 'white',
+        fontSize: 16,
+        textAlign: 'center'
     }
 });
